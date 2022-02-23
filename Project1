@@ -1,0 +1,78 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyM9xSVKIp271oZigI7ohgu3"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "'''\n",
+        "Request\n",
+        "The customer requests a program that computes a person’s income tax.\n",
+        "\n",
+        "Analysis\n",
+        "Analysis often requires the programmer to learn some things about the problem domain, in this case, the relevant tax law. For the sake of simplicity, let’s assume the following tax laws:\n",
+        "\n",
+        "All taxpayers are charged a flat tax rate of 20%\n",
+        "All taxpayers are allowed a $10,000 standard deduction\n",
+        "For each dependent, a taxpayer is allowed an additional $3,000 deduction\n",
+        "Gross income must be entered to the nearest penny\n",
+        "The income tax is expressed as a decimal number\n",
+        "'''\n",
+        "\n",
+        "# inputs : gross income and number of dependents\n",
+        "# output : person's income tax\n",
+        "\n",
+        "# taxRate = 20%\n",
+        "# indDeduction = 10000\n",
+        "# depDeduction = 3000\n",
+        "# IncomeTax = (Gross Income - individual deduction - dependent deduction) * Tax Rate\n",
+        "\n",
+        "#user input\n",
+        "grossIncome = int(input('Enter the gross income: '))\n",
+        "numDependents = int(input('Enter the number of dependents: '))\n",
+        "\n",
+        "#calculations\n",
+        "indDeduction = 10000\n",
+        "depDeduction = 3000 * numDependents\n",
+        "taxRate = 0.2\n",
+        "incomeTax = (grossIncome - indDeduction - depDeduction)*taxRate\n",
+        "\n",
+        "#output\n",
+        "print(f'The income tax is ${incomeTax:.1f}')"
+      ],
+      "metadata": {
+        "id": "PNALgaU1NtuA",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f6f5895d-6f9b-4e72-92c3-d326a6204eda"
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the gross income: 150000\n",
+            "Enter the number of dependents: 3\n",
+            "The income tax is $26200.0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
