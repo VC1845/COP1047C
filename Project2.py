@@ -64,7 +64,7 @@ def main():
         DogsPerPerson = int(input("Number of hot dogs each person will be given: "))
         break
       except:
-        print("Please enter a number.")
+        print("Please enter a valid number.")
         continue
     dogsAndBuns(NumPeople, DogsPerPerson)
 
