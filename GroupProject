@@ -1,1 +1,28 @@
-#Code will go here
+class sizes:
+  def __init__(size, name, price):
+    size.name = name
+    size.price = price
+
+Small = sizes("small", 10)
+Medium = sizes("medium", 12)
+
+class toppings:
+  def __init__(toppings, name, price):
+    toppings.name = name
+    toppings.price = price
+
+A = toppings("tomato", .50)
+
+
+
+def pick_size():
+    size =input("What size pizza do you want select from  ")
+    if size == S:
+        print(Small)
+    elif size == M:
+        print(medium)
+    else:
+        print("must type S for small, M for medium")
+    return size
+
+
