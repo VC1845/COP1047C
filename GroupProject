@@ -25,4 +25,84 @@ def pick_size():
         print("must type S for small, M for medium")
     return size
 
+'''
+GUI
+'''
 
+
+from tkinter import *
+from PIL import ImageTk, Image
+
+
+pizza = Tk()
+pizza.geometry('600x500')
+pizza.title("Salcedo's Pizza Shop")
+
+# name
+name_label = Label(pizza, text ="Name: ")
+name_label.grid(row=2, column=0)
+
+name_entry = Entry(pizza, width = 30)
+name_entry.grid(row=2, column= 1)
+
+# phone
+phone_label = Label(pizza, text ="Phone: ")
+phone_label.grid(row=3, column=0)
+
+phone_entry = Entry(pizza, width = 30)
+phone_entry.grid(row=3, column= 1)
+
+# Pizza toppings
+my_pizza_toppings = ["Peperonni", "Extra Cheese", "Mushroom", "Steak", "Olives"]
+
+
+pizza_toppings = Listbox(pizza, selectmode= MULTIPLE, bg="black", fg="white")
+pizza_toppings.grid(row=6, column=1)
+
+
+for topping in my_pizza_toppings:
+    pizza_toppings.insert(0, topping)
+
+
+
+def add_pizza():
+    result= ""
+    for topping in pizza_toppings.curselection():
+        result = result + str(pizza_toppings.get(topping)) + "\n"
+
+        add_lbl.config(text="Your Topping Selection: " + "\n" + result)
+
+def checkout():
+    text1 = name_entry.get()
+    new_lbl = Label(pizza, text= "Name: " + text1)
+    new_lbl.grid(row=8, column=2)
+
+    text2 = phone_entry.get()
+    new_lbl2 = Label(pizza, text = text2)
+    new_lbl2.grid(row=9, column=2)
+
+def clearOrder ():
+    pizza_toppings.delete(0, 5)
+
+add_lbl = Label(pizza, text="")
+add_lbl.grid(row=7, column=1)
+
+#order buttons
+add_button = Button(pizza, text="Add Pizza", command= add_pizza)
+add_button.grid(row=7, column=0)
+
+checkout_button = Button(pizza, text="Checkout", command= checkout)
+checkout_button.grid(row=8, column=0)
+
+remove_button = Button(pizza, text="Clear Order", command = clearOrder)
+remove_button.grid(row=9,column=0)
+
+drinks = StringVar()
+
+drink = OptionMenu(pizza, drinks, "Cola", "Beer", "Option 3")
+drinks.set("Choose a drink")
+drink.grid(row=10, column=0)
+
+
+
+pizza.mainloop()
