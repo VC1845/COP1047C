@@ -3,6 +3,9 @@ class sizes:
     size.name = name
     size.price = price
 
+  def __repr__(size):
+      return f'sizes({size.name},{size.price})'
+      
 Small = sizes("small", 10)
 Medium = sizes("medium", 12)
 
@@ -11,24 +14,41 @@ class toppings:
     toppings.name = name
     toppings.price = price
 
+  def __repr__(toppings):
+      return f'toppings({toppings.name},{toppings.price})'
+
 A = toppings("tomato", .50)
 
 
-
 def pick_size():
+    global size
     size =input("What size pizza do you want select from  ")
-    if size == S:
-        print(Small)
-    elif size == M:
-        print(medium)
+    if size == "S":
+        size= Small
+        print(repr(Small))
+    elif size == "M":
+        size = Medium
+        print(repr(Medium))
     else:
         print("must type S for small, M for medium")
     return size
 
+def bill():
+    total = float(repr(size.price))
+    add = input()
+    if add =="A":
+            total += A.price
+            add = input()
+    elif add == "done":
+        return total 
+    else: 
+        print("try again")
+        add = input()
+
+
 '''
 GUI
 '''
-
 
 from tkinter import *
 from PIL import ImageTk, Image
