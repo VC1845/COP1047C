@@ -8,6 +8,8 @@ class sizes:
       
 Small = sizes("small", 10)
 Medium = sizes("medium", 12)
+Large = sizes("large", 14)
+X_Large = sizes("x_large", 16)
 
 class toppings:
   def __init__(toppings, name, price):
@@ -29,8 +31,14 @@ def pick_size():
     elif size == "M":
         size = Medium
         print(repr(Medium))
+    elif size == "L":
+        size = Large
+        print(repr(Large))
+    elif size == "XL":
+        size = X_Large
+        print(repr(X_Large))
     else:
-        print("must type S for small, M for medium")
+        print("must type S for small, M for medium, L for large, XL for x_large")
     return size
 
 def bill():
